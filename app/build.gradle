@@ -13,6 +13,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /*启用MultiDex*/
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -39,4 +42,7 @@ dependencies {
     compile "com.google.dagger:dagger:$DAGGER2_VERSOIN"
     annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER2_VERSOIN"
     apt "com.google.dagger:dagger-compiler:$DAGGER2_VERSOIN"
+
+    /*集成MultiDex*/
+    compile 'com.android.support:multidex:1.0.1'
 }

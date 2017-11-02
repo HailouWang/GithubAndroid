@@ -2,6 +2,7 @@ package hlwang.github.com.githubandroid;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
@@ -18,7 +19,7 @@ import hlwang.github.com.githubandroid.utils.MainConfig;
  * Created by wanghailu on 17-11-1.
  */
 
-public class GithubAndroidApplication extends Application {
+public class GithubAndroidApplication extends MultiDexApplication {
 
     private static Context sContext;
 
