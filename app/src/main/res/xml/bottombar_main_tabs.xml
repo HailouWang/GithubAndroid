@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_frames"
+        icon="@drawable/ic_frames"
+        title="@string/main_tab_frames"/>
+
+    <tab
+        id="@+id/tab_blogs"
+        icon="@drawable/ic_recommend"
+        title="@string/main_tab_blogs"/>
+
+    <tab
+        id="@+id/tab_settings"
+        icon="@drawable/ic_settings"
+        title="@string/main_tab_settings"/>
+</tabs>

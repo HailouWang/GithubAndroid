@@ -3,7 +3,7 @@ package hlwang.github.com.githubandroid.di.component;
 import dagger.Component;
 import hlwang.github.com.githubandroid.di.PerActivity;
 import hlwang.github.com.githubandroid.di.module.ActivityModule;
-import hlwang.github.com.githubandroid.ui.module.BlogRecommendFragment;
+import hlwang.github.com.githubandroid.ui.module.blog.BlogRecommendFragment;
 import hlwang.github.com.githubandroid.ui.module.frame.FrameRecommendFragment;
 
 /**

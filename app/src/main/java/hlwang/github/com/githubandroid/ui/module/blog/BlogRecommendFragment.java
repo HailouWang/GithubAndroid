@@ -1,4 +1,4 @@
-package hlwang.github.com.githubandroid.ui.module;
+package hlwang.github.com.githubandroid.ui.module.blog;
 
 import hlwang.github.com.githubandroid.ui.base.BaseFragment;
 

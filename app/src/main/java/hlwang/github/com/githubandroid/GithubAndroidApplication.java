@@ -8,9 +8,7 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
 import hlwang.github.com.githubandroid.constants.Tags;
-import hlwang.github.com.githubandroid.di.HasComponent;
 import hlwang.github.com.githubandroid.di.component.ApplicationComponent;
-import hlwang.github.com.githubandroid.di.component.DaggerActivityComponent;
 import hlwang.github.com.githubandroid.di.component.DaggerApplicationComponent;
 import hlwang.github.com.githubandroid.di.module.ApplicationModule;
 import hlwang.github.com.githubandroid.utils.MainConfig;

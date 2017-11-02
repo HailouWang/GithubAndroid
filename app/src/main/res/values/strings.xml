@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GithubAndroid</string>
+
+    <string name="main_tab_frames">Frames</string>
+    <string name="main_tab_blogs">Blogs</string>
+    <string name="main_tab_settings">Settings</string>
+
 </resources>
