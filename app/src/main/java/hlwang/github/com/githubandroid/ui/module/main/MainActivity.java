@@ -1,29 +1,37 @@
 package hlwang.github.com.githubandroid.ui.module.main;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.widget.FrameLayout;
 
-import javax.inject.Inject;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import hlwang.github.com.githubandroid.GithubAndroidApplication;
 import hlwang.github.com.githubandroid.R;
 import hlwang.github.com.githubandroid.di.HasComponent;
-import hlwang.github.com.githubandroid.di.component.ApplicationComponent;
 import hlwang.github.com.githubandroid.di.component.DaggerMainComponent;
 import hlwang.github.com.githubandroid.di.component.MainComponent;
 import hlwang.github.com.githubandroid.di.module.ActivityModule;
-import hlwang.github.com.githubandroid.presenter.MainPresenter;
 import hlwang.github.com.githubandroid.ui.base.BaseActivity;
 
 public class MainActivity extends BaseActivity implements HasComponent<MainComponent> {
+    @BindView(R.id.toolbar)
+    private Toolbar mToolBar;
 
-    @Inject
-    MainPresenter mMainPresenter;
+    @BindView(R.id.content_frame)
+    FrameLayout mContentFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        initViews();
+    }
+
+    private void initViews(){
+        setSupportActionBar(mToolBar);
     }
 
     @Override
