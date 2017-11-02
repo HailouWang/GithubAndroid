@@ -4,12 +4,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 24
     buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "hlwang.github.com.githubandroid"
-        minSdkVersion 23
-        targetSdkVersion 26
+        minSdkVersion 15
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -40,7 +40,6 @@ dependencies {
     /*集成Dagger2*/
     final DAGGER2_VERSOIN = '2.5'
     compile "com.google.dagger:dagger:$DAGGER2_VERSOIN"
-    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER2_VERSOIN"
     apt "com.google.dagger:dagger-compiler:$DAGGER2_VERSOIN"
 
     /*集成MultiDex*/
@@ -48,7 +47,7 @@ dependencies {
 
     /*集成butterknife*/
     compile 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    apt 'com.jakewharton:butterknife-compiler:8.8.1'
 
     /*集成BottomBar*/
     compile 'com.roughike:bottom-bar:2.3.1'
