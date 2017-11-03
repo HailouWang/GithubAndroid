@@ -10,20 +10,24 @@ import android.widget.FrameLayout;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import hlwang.github.com.githubandroid.GithubAndroidApplication;
 import hlwang.github.com.githubandroid.R;
+import hlwang.github.com.githubandroid.contract.MainContract;
 import hlwang.github.com.githubandroid.di.HasComponent;
 import hlwang.github.com.githubandroid.di.component.DaggerMainComponent;
 import hlwang.github.com.githubandroid.di.component.MainComponent;
 import hlwang.github.com.githubandroid.di.module.ActivityModule;
+import hlwang.github.com.githubandroid.presenter.MainPresenter;
 import hlwang.github.com.githubandroid.ui.base.BaseActivity;
 import hlwang.github.com.githubandroid.ui.module.blog.BlogRecommendFragment;
 import hlwang.github.com.githubandroid.ui.module.frame.FrameRecommendFragment;
 import hlwang.github.com.githubandroid.ui.module.profile.AppSettingsFragment;
 
-public class MainActivity extends BaseActivity implements HasComponent<MainComponent> {
+public class MainActivity extends BaseActivity implements HasComponent<MainComponent> , MainContract.View {
     @BindView(R.id.toolbar)
     Toolbar mToolBar;
 
@@ -36,11 +40,18 @@ public class MainActivity extends BaseActivity implements HasComponent<MainCompo
     private FragmentManager mFragmentManager = getSupportFragmentManager();
     private Fragment mCurrentFragment;
 
+    @Inject
+    MainPresenter mMainPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        getComponent().inject(this);
+
+        mMainPresenter.attach(this);
 
         initViews();
     }
@@ -110,10 +121,20 @@ public class MainActivity extends BaseActivity implements HasComponent<MainCompo
     }
 
     @Override
+    public void onBackPressed() {
+        mMainPresenter.onBackPressed();
+    }
+
+    @Override
     public MainComponent getComponent() {
         return DaggerMainComponent.builder()
                 .applicationComponent(GithubAndroidApplication.getApplication().getComponent())
                 .activityModule(new ActivityModule(this))
                 .build();
+    }
+
+    @Override
+    public void finishActivity() {
+        super.onBackPressed();
     }
 }

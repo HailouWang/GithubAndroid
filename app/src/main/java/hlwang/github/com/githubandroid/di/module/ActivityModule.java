@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import dagger.Module;
 import dagger.Provides;
 import hlwang.github.com.githubandroid.di.ActivityContext;
+import hlwang.github.com.githubandroid.di.PerActivity;
+import hlwang.github.com.githubandroid.presenter.MainPresenter;
 
 /**
  * Created by wanghailu on 17-11-1.
@@ -19,19 +21,19 @@ public class ActivityModule {
         mActivity = activity;
     }
 
-    public ActivityModule(Fragment fragment){
-        mActivity = fragment.getActivity();
-    }
-
-    @Provides
+    @Provides @PerActivity
     Activity provideActivity(){
         return mActivity;
     }
 
-    @ActivityContext
-    @Provides
+    @Provides @ActivityContext
     Context provideContext(){
         return mActivity;
+    }
+
+    @Provides
+    MainPresenter provideMainPresenter(){
+        return new MainPresenter(mActivity);
     }
 
 }
